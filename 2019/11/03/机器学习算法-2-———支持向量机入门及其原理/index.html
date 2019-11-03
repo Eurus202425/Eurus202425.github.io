@@ -83,12 +83,20 @@
 <meta name="keywords" content="机器学习算法(2)———支持向量机入门及相关原理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习算法(2)———支持向量机入门及相关原理">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;03&#x2F;%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95-2-%E2%80%94%E2%80%94%E2%80%94%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA&#x2F;index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;03&#x2F;%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95-2-%E2%80%94%E2%80%94%E2%80%94%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%85%A5%E9%97%A8%E5%8F%8A%E5%85%B6%E5%8E%9F%E7%90%86&#x2F;index.html">
 <meta property="og:site_name" content="Eurus的博客">
 <meta property="og:description" content="前提：将每个特征值作为一个坐标轴，每个数据对应多维空间中的一个点。 1.原理：1）思想：支持向量机的目的是通过寻找一个超平面来对样本点进行分割，将分割平面与数据点的最小距离最大化。即找到离分隔超平面最近的点，确保它们离分隔面的距离尽可能的远。 2）类别：监督学习3）优点：3.1 构建模型时强大有效3.2 训练出的超平面对样本局部扰动的容忍性好，可以忽略异常值。3.3 应用基本形式的SVM就可以得到">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-03T13:08:44.604Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Eurus202425&#x2F;Eurus202425.github.io&#x2F;master&#x2F;2019&#x2F;11&#x2F;03&#x2F;%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95-2-%E2%80%94%E2%80%94%E2%80%94%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA&#x2F;%E8%B6%85%E5%B9%B3%E9%9D%A2.JPG">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Eurus202425&#x2F;Eurus202425.github.io&#x2F;master&#x2F;2019&#x2F;11&#x2F;03&#x2F;%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95-2-%E2%80%94%E2%80%94%E2%80%94%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA&#x2F;%E5%88%92%E5%88%86%E8%B6%85%E5%B9%B3%E9%9D%A2%E5%85%AC%E5%BC%8F.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Eurus202425&#x2F;Eurus202425.github.io&#x2F;master&#x2F;2019&#x2F;11&#x2F;03&#x2F;%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95-2-%E2%80%94%E2%80%94%E2%80%94%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA&#x2F;%E5%88%B0%E5%88%92%E5%88%86%E8%B6%85%E5%B9%B3%E9%9D%A2%E8%B7%9D%E7%A6%BB%E5%85%AC%E5%BC%8F.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Eurus202425&#x2F;Eurus202425.github.io&#x2F;master&#x2F;2019&#x2F;11&#x2F;03&#x2F;%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95-2-%E2%80%94%E2%80%94%E2%80%94%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA&#x2F;%E6%9C%80%E5%B0%8F%E9%97%B4%E9%9A%94%E6%9C%80%E5%A4%A7%E5%8C%96%E5%85%AC%E5%BC%8F.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Eurus202425&#x2F;Eurus202425.github.io&#x2F;master&#x2F;2019&#x2F;11&#x2F;03&#x2F;%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95-2-%E2%80%94%E2%80%94%E2%80%94%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA&#x2F;%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%9F%BA%E6%9C%AC%E5%BD%A2%E5%BC%8F.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Eurus202425&#x2F;Eurus202425.github.io&#x2F;master&#x2F;2019&#x2F;11&#x2F;03&#x2F;%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95-2-%E2%80%94%E2%80%94%E2%80%94%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA&#x2F;%E6%9C%80%E7%BB%88%E4%BC%98%E5%8C%96%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B0.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Eurus202425&#x2F;Eurus202425.github.io&#x2F;master&#x2F;2019&#x2F;11&#x2F;03&#x2F;%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95-2-%E2%80%94%E2%80%94%E2%80%94%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA&#x2F;%E7%BA%A6%E6%9D%9F%E6%9D%A1%E4%BB%B6.png">
+<meta property="og:updated_time" content="2019-11-03T13:22:29.028Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Eurus202425&#x2F;Eurus202425.github.io&#x2F;master&#x2F;2019&#x2F;11&#x2F;03&#x2F;%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95-2-%E2%80%94%E2%80%94%E2%80%94%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA&#x2F;%E8%B6%85%E5%B9%B3%E9%9D%A2.JPG">
 
 
 
@@ -118,7 +126,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/11/03/机器学习算法-2-———支持向量机/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/11/03/机器学习算法-2-———支持向量机入门及其原理/"/>
 
 
 
@@ -231,7 +239,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/03/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95-2-%E2%80%94%E2%80%94%E2%80%94%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/03/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95-2-%E2%80%94%E2%80%94%E2%80%94%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%85%A5%E9%97%A8%E5%8F%8A%E5%85%B6%E5%8E%9F%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Eurus">
@@ -301,17 +309,17 @@
         <p><em>前提：将每个特征值作为一个坐标轴，每个数据对应多维空间中的一个点。</em></p>
 <h1 id="1-原理："><a href="#1-原理：" class="headerlink" title="1.原理："></a>1.原理：</h1><h2 id="1）思想："><a href="#1）思想：" class="headerlink" title="1）思想："></a>1）思想：</h2><p>支持向量机的目的是通过寻找一个超平面来对样本点进行分割，将分割平面与数据点的<u>最小距离最大化</u>。即找到离分隔超平面最近的点，确保它们离分隔面的距离尽可能的远。</p>
 <h2 id="2）类别：监督学习"><a href="#2）类别：监督学习" class="headerlink" title="2）类别：监督学习"></a>2）类别：监督学习</h2><h2 id="3）优点："><a href="#3）优点：" class="headerlink" title="3）优点："></a>3）优点：</h2><p>3.1 构建模型时强大有效<br>3.2 训练出的超平面对样本局部扰动的容忍性好，可以忽略异常值。<br>3.3 应用基本形式的SVM就可以得到低错误率的效果，且能够对训练集之外的数据做出很好的决策。\</p>
-<h2 id="4）基本概念及数学公式："><a href="#4）基本概念及数学公式：" class="headerlink" title="4）基本概念及数学公式："></a>4）基本概念及数学公式：</h2><h3 id="超平面"><a href="#超平面" class="headerlink" title="超平面"></a>超平面</h3><p>可以将样本在多维空间中开的函数平面就叫做超平面。在二维空间中是一条线，在三维空间中是一个二维平面，以此类推。<br><img src alt="超平面"></p>
+<h2 id="4）基本概念及数学公式："><a href="#4）基本概念及数学公式：" class="headerlink" title="4）基本概念及数学公式："></a>4）基本概念及数学公式：</h2><h3 id="超平面"><a href="#超平面" class="headerlink" title="超平面"></a>超平面</h3><p>可以将样本在多维空间中开的函数平面就叫做超平面。在二维空间中是一条线，在三维空间中是一个二维平面，以此类推。<br><img src="https://raw.githubusercontent.com/Eurus202425/Eurus202425.github.io/master/2019/11/03/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95-2-%E2%80%94%E2%80%94%E2%80%94%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/%E8%B6%85%E5%B9%B3%E9%9D%A2.JPG" alt="超平面"></p>
 <h3 id="支持向量"><a href="#支持向量" class="headerlink" title="支持向量"></a>支持向量</h3><p>支持向量就是离分隔超平面最近的那些点。</p>
-<h3 id="可分支持向量机（划分超平面）"><a href="#可分支持向量机（划分超平面）" class="headerlink" title="可分支持向量机（划分超平面）"></a>可分支持向量机（划分超平面）</h3><p>能将数据正确划分并且间隔最大的函数。表达式为：<br><img src alt="划分超平面公式"><br>其中W为超平面的法向量，b决定了超平面与远点的距离。则我们可将超平面简记为：(w,b)。</p>
-<h3 id="距离"><a href="#距离" class="headerlink" title="距离"></a>距离</h3><p>任意点到划分超平面的距离，公式如下：<br><img src alt="到划分超平面距离公式">\</p>
+<h3 id="可分支持向量机（划分超平面）"><a href="#可分支持向量机（划分超平面）" class="headerlink" title="可分支持向量机（划分超平面）"></a>可分支持向量机（划分超平面）</h3><p>能将数据正确划分并且间隔最大的函数。表达式为：<br><img src="https://raw.githubusercontent.com/Eurus202425/Eurus202425.github.io/master/2019/11/03/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95-2-%E2%80%94%E2%80%94%E2%80%94%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/%E5%88%92%E5%88%86%E8%B6%85%E5%B9%B3%E9%9D%A2%E5%85%AC%E5%BC%8F.png" alt="划分超平面公式"><br>其中W为超平面的法向量，b决定了超平面与远点的距离。则我们可将超平面简记为：(w,b)。</p>
+<h3 id="距离"><a href="#距离" class="headerlink" title="距离"></a>距离</h3><p>任意点到划分超平面的距离，公式如下：<br><img src="https://raw.githubusercontent.com/Eurus202425/Eurus202425.github.io/master/2019/11/03/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95-2-%E2%80%94%E2%80%94%E2%80%94%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/%E5%88%B0%E5%88%92%E5%88%86%E8%B6%85%E5%B9%B3%E9%9D%A2%E8%B7%9D%E7%A6%BB%E5%85%AC%E5%BC%8F.png" alt="到划分超平面距离公式">\</p>
 <h3 id="间隔"><a href="#间隔" class="headerlink" title="间隔"></a>间隔</h3><p>点到分隔面的距离的两倍被称为间隔。</p>
-<h3 id="最小间隔最大化"><a href="#最小间隔最大化" class="headerlink" title="最小间隔最大化"></a>最小间隔最大化</h3><p>我们的目标是找到最小间隔的那些数据点，并将其最大化后求出参数 W 和 b。公式可以写为：<br><img src alt="最小间隔最大化公式">\</p>
-<h3 id="支持向量机基本形式："><a href="#支持向量机基本形式：" class="headerlink" title="支持向量机基本形式："></a>支持向量机基本形式：</h3><p>支持向量机基本形式为凸二次规划问题<br><img src alt="支持向量机基本形式">\</p>
-<h3 id="对偶问题"><a href="#对偶问题" class="headerlink" title="对偶问题"></a>对偶问题</h3><p>对基本形式使用拉格朗日乘子法可得到其对偶问题。最终的优化目标函数为：<br><img src alt="最终优化目标函数"><br>其约束条件为：<br><img src alt="约束条件"><br>求解出alpha后，求出 W 与 b 即可得到超平面模型。</p>
+<h3 id="最小间隔最大化"><a href="#最小间隔最大化" class="headerlink" title="最小间隔最大化"></a>最小间隔最大化</h3><p>我们的目标是找到最小间隔的那些数据点，并将其最大化后求出参数 W 和 b。公式可以写为：<br><img src="https://raw.githubusercontent.com/Eurus202425/Eurus202425.github.io/master/2019/11/03/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95-2-%E2%80%94%E2%80%94%E2%80%94%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/%E6%9C%80%E5%B0%8F%E9%97%B4%E9%9A%94%E6%9C%80%E5%A4%A7%E5%8C%96%E5%85%AC%E5%BC%8F.png" alt="最小间隔最大化公式">\</p>
+<h3 id="支持向量机基本形式："><a href="#支持向量机基本形式：" class="headerlink" title="支持向量机基本形式："></a>支持向量机基本形式：</h3><p>支持向量机基本形式为凸二次规划问题<br><img src="https://raw.githubusercontent.com/Eurus202425/Eurus202425.github.io/master/2019/11/03/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95-2-%E2%80%94%E2%80%94%E2%80%94%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%9F%BA%E6%9C%AC%E5%BD%A2%E5%BC%8F.png" alt="支持向量机基本形式">\</p>
+<h3 id="对偶问题"><a href="#对偶问题" class="headerlink" title="对偶问题"></a>对偶问题</h3><p>对基本形式使用拉格朗日乘子法可得到其对偶问题。最终的优化目标函数为：<br><img src="https://raw.githubusercontent.com/Eurus202425/Eurus202425.github.io/master/2019/11/03/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95-2-%E2%80%94%E2%80%94%E2%80%94%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/%E6%9C%80%E7%BB%88%E4%BC%98%E5%8C%96%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B0.png" alt="最终优化目标函数"><br>其约束条件为：<br><img src="https://raw.githubusercontent.com/Eurus202425/Eurus202425.github.io/master/2019/11/03/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95-2-%E2%80%94%E2%80%94%E2%80%94%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/%E7%BA%A6%E6%9D%9F%E6%9D%A1%E4%BB%B6.png" alt="约束条件"><br>求解出alpha后，求出 W 与 b 即可得到超平面模型。</p>
 <h3 id="SMO优化"><a href="#SMO优化" class="headerlink" title="SMO优化"></a>SMO优化</h3><p>对得到的 alpha 进行优化。工作原理是：每次循环中选择两个 alpha 优化处理，一旦找到一对合适的alpha,那么就增大其中一个同时减小另一个。<em>（这里所谓的合适就是指两个alpha必须在间隔边界之外，或还没进过区间化处理或者不在边界上。）</em></p>
 <h3 id="主要思路"><a href="#主要思路" class="headerlink" title="主要思路"></a>主要思路</h3><p>通过给定数据的计算求出 alpha 和超平面模型,再根据 SMO 在 for 循环内对 alpha 进行优化。在 for 循环外判断 alpha 是否有更新，若在一次遍历中，alpha 的值没有更新，计数器 iter 就加1，若计数器的值大于了给定的一个最大遍历次数 maxIter ，那么就退出循环。利用 alpha 求出 W 与 b。</p>
-<h3 id="新增知识点："><a href="#新增知识点：" class="headerlink" title="新增知识点："></a>新增知识点：</h3><p>mat()函数，该函数可以将列表转化为矩阵。<br>eg:<br>a=[1,2,3]–a为列表形式<br>b=np.mat(a)–b为矩阵形式</p>
+<h3 id="新增知识点："><a href="#新增知识点：" class="headerlink" title="新增知识点："></a>新增知识点：</h3><p>mat()函数，该函数可以将列表转化为矩阵。<br>Eg:<br>a=[1,2,3]–a为列表形式<br>b=np.mat(a)–b为矩阵形式</p>
 
       
     </div>
